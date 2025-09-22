@@ -9,15 +9,19 @@ Before(() => {
   calculator = new Calculator()
 })
 
-Given('I have entered 5 and 7 into the calculator', function () {
-  i = 5
-  j = 7
+Given('I have entered {int} and {int} into the calculator', function (firstNumber, secondNumber) {
+  i = firstNumber
+  j = secondNumber
 })
 
 When('I press the add button', function () {
   result = calculator.addition(i, j)
 })
 
-Then('the result should be 12', function () {
-  assert.equal(result, 12)
+When('I press the subtract button', function () {
+  result = calculator.subtraction(i, j)
+})
+
+Then('the result should be {int}', function (expectedResult) {
+  assert.equal(result, expectedResult)
 })
