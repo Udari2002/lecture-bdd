@@ -4,21 +4,24 @@ Feature: Calculator Basic Operations
   So that I can get accurate results
 
   Scenario: Add two numbers
-    Given I have entered 5 and 7 into the calculator
+    Given I have entered <firstvalue> and <secondvalue> into the calculator
     When I press the add button
-    Then the result should be 12
+    Then the result should be <expected value> on the screen
+    Examples:
+      | firstvalue | secondvalue | expected value |
+      | 5          | 3           | 8              |
+      | 10         | 15          | 25             |
+      | 20         | 30          | 50             |
+      | 100        | 200         | 300            | 
 
-  Scenario: Add two different numbers
-    Given I have entered 10 and 15 into the calculator
-    When I press the add button
-    Then the result should be 25
-
-  Scenario: Subtract two numbers
-    Given I have entered 10 and 3 into the calculator
+  Scenario: subtract two numbers
+    Given I have entered <firstvalue> and <secondvalue> into the calculator
     When I press the subtract button
-    Then the result should be 7
+    Then the result should be <expected value> on the screen
+    Examples:
+      | firstvalue | secondvalue | expected value |
+      | 10         | 4           | 6              |
+      | 20         | 5           | 15             |
+      | 30         | 10          | 20             |
+      | 50         | 25          | 25             |
 
-  Scenario: Subtract with different numbers
-    Given I have entered 20 and 8 into the calculator
-    When I press the subtract button
-    Then the result should be 12
